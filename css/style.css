@@ -841,3 +841,49 @@ body.dark-mode ::-webkit-scrollbar-track {
 .musica-foto:hover {
     transform: scale(1.03);
 }
+/* Ajustes específicos para dispositivos móveis (Android) */
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2rem; /* Títulos menores para não quebrar linha feio */
+    }
+
+    .hero-content {
+        padding: 0 10px;
+    }
+
+    .mensagem-box {
+        padding: 2rem 1rem;
+        margin: 0 10px 2rem 10px;
+    }
+
+    .mensagem-texto {
+        font-size: 1.1rem;
+    }
+
+    .motivos-grid {
+        grid-template-columns: 1fr; /* Em telas muito pequenas, uma coluna só */
+    }
+
+    .musica-foto {
+        width: 250px; /* Ajuste para caber melhor na largura de telas Android */
+        height: 250px;
+    }
+}
+
+/* Garante que imagens e vídeos não estourem a tela */
+img, video, .galeria-item {
+    max-width: 100%;
+}
+
+/* Melhoria no padding geral para mobile não encostar nas bordas */
+@media (max-width: 768px) {
+    .galeria-section, .motivos-section, .mensagem-section, .musica-section {
+        padding: 3rem 1rem;
+    }
+    
+    /* Corrige o problema comum de overflow horizontal em Android */
+    body {
+        overflow-x: hidden;
+        width: 100vw;
+    }
+}
