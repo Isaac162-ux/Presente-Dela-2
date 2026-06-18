@@ -438,7 +438,7 @@ function scrollParaAba(tabId) {
 }
 
 // ===========================
-// HAMBÚRGUER MENU
+// HAMBÚRGUER MENU (ATUALIZADO PARA USAR CLASSES)
 // ===========================
 function inicializarHamburger() {
     const hamburger = document.querySelector('.hamburger');
@@ -447,7 +447,25 @@ function inicializarHamburger() {
     if (hamburger && navTabs) {
         hamburger.addEventListener('click', (e) => {
             e.preventDefault();
-            navTabs.style.display = navTabs.style.display === 'flex' ? 'none' : 'flex';
+            // Toggle classes para ativar estilos CSS e animação do ícone
+            navTabs.classList.toggle('open');
+            hamburger.classList.toggle('open');
+        });
+
+        // Fecha o menu ao clicar em uma aba (bom para UX mobile)
+        navTabs.addEventListener('click', (e) => {
+            if (e.target.classList && e.target.classList.contains('tab-btn')) {
+                navTabs.classList.remove('open');
+                hamburger.classList.remove('open');
+            }
+        });
+
+        // Fecha o menu ao clicar fora (opcional)
+        document.addEventListener('click', (e) => {
+            if (!navTabs.contains(e.target) && !hamburger.contains(e.target)) {
+                navTabs.classList.remove('open');
+                hamburger.classList.remove('open');
+            }
         });
     }
 }
