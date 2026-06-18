@@ -24,6 +24,12 @@ body {
     overflow-x: hidden;
 }
 
+/* Quando o menu mobile está aberto, trava o scroll de fundo */
+body.menu-open {
+    overflow: hidden;
+    touch-action: none;
+}
+
 body.dark-mode {
     background-color: var(--dark-bg);
     color: var(--text-light);
